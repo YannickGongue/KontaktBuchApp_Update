@@ -37,11 +37,34 @@ namespace KontaktBuchApp.ViewModel
 		private string country;
 		private MContactMethod contacttype;
 		private string value;
+		private bool baddRow;
+		private bool baddNewAdresse;
 		private ObservableCollection<MAddress> _addresses;
 		private ObservableCollection<MContactMethod> _contactMethods;
 		private AddressView _AddressView;
 		private AddressViewModel AddressViewModel;
+		private ContactMethodView _ContactMethodView;
+		private ContactMethodsViewModel vmContactMethod;
 
+		public bool AddNewAdresse
+		{
+			get { return baddNewAdresse; }
+			set
+			{
+				baddNewAdresse = value;
+				OnPropertyChanged(nameof(AddNewAdresse));
+			}
+		}
+
+		public bool bAddNewRow
+		{
+			get { return baddRow; }
+			set
+			{
+				baddRow = value;
+				OnPropertyChanged(nameof(bAddNewRow));
+			}
+		}
 		public ObservableCollection<MAddress> Addresses
 		{
 			get { return _addresses; }
@@ -191,7 +214,10 @@ namespace KontaktBuchApp.ViewModel
 			this.DeleteContactMethodCommand = new RelayCommand(DeleteContactMethod);
 			this.ChangeImageCommand = new RelayCommand(ChangeImage);
 
-			if(this.AddText().Contains("Kontakt bearbeiten"))
+			this._addresses = new ObservableCollection<MAddress>();
+			Addresses = this._addresses;
+
+			if (this.AddText().Contains("Kontakt bearbeiten"))
 			{
 				this.FirstName = this._mContacts.Nachname;
 				this.LastName = this._mContacts.Vorname;
@@ -219,15 +245,13 @@ namespace KontaktBuchApp.ViewModel
 		}
 
 		private void SaveContact()
-		{
-		
+		{	
 				_mContacts.Nachname = this.LastName;
 				_mContacts.Vorname = this.FirstName;
 			   _mContacts.ProfilbildImage = this.SelectedImage;
 			   _mContacts.Addresses = this.Addresses;
 			  _mContacts.ContactMethods = this.ContactMethods;
-				this._IContactList.Add(this._mContacts);     
-				
+				this._IContactList.Add(this._mContacts);     		
 			
 		}
 
@@ -239,14 +263,35 @@ namespace KontaktBuchApp.ViewModel
 			}
 		}
 
+		private void AddContactMethodToList(MContactMethod method)
+		{
+			if (ContactMethods == null)
+			{
+				ContactMethods = new ObservableCollection<MContactMethod>();
+			}
+
+			ContactMethods.Add(method);
+		}
+
+		public void AddAddressToList(MAddress address)
+		{
+			if (Addresses == null)
+			{
+				Addresses = new ObservableCollection<MAddress>();
+			}
+			Addresses.Add(address);
+		}
+
 		private void AddAddress()
 		{
-	
+	   	
+			this.AddNewAdresse = true;
 			this._AddressView = new AddressView();
 			this.AddressViewModel = new AddressViewModel(this._mAddress);
+			this.AddressViewModel.AddressSaved = AddAddressToList;
 			this._AddressView.DataContext = this.AddressViewModel;
+
 			this._AddressView.Show();
-			
 
 		}
 
@@ -257,10 +302,14 @@ namespace KontaktBuchApp.ViewModel
 
 		private void AddContactMethod()
 		{
-			_mContactMethod.Type = this.ContactType.Type;
-			_mContactMethod.Value = this.Value;
+			this.bAddNewRow = true;
+			var method = new MContactMethod();
+			this._ContactMethodView = new ContactMethodView();
+			this.vmContactMethod = new ContactMethodsViewModel(method);
+			this.vmContactMethod.ContactMethodSaved = AddContactMethodToList;
+			this._ContactMethodView.DataContext = this.vmContactMethod;
+			this._ContactMethodView.Show();
 
-			this._IcontactDetails.GetContactMethodsByContactId(this._mContacts.ContactId);
 		}
 
 		private void DeleteContactMethod()

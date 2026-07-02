@@ -71,6 +71,7 @@ namespace KontaktBuchApp.ViewModel
 		public MAddress _mAddress;
 
 		public Action CloseAction { get; set; }
+		public Action<MAddress> AddressSaved { get; set; }
 
 		public IRelayCommand OkCommand { get; set; }
 
@@ -88,6 +89,10 @@ namespace KontaktBuchApp.ViewModel
 			this._mAddress.Plz = this.Plz;
 			this._mAddress.Land = this.Land;
 			this._mAddress.strasseNr = this.StrasseNr;
+
+			AddressSaved?.Invoke(_mAddress);
+
+			CloseAction?.Invoke();
 
 		}
 	}

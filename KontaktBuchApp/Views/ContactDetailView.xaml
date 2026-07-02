@@ -126,8 +126,9 @@
     HeadersVisibility="Column"
     GridLinesVisibility="Horizontal"
     AutoGenerateColumns="False"
-    CanUserAddRows="False"
-						ItemsSource="{Binding ContactMethods}">
+    CanUserAddRows="{Binding bAddNewRow}"
+						ItemsSource="{Binding ContactMethods}"
+						>
 
 						<DataGrid.Columns>
 
@@ -177,7 +178,7 @@
 
 					<DataGrid ItemsSource="{Binding Addresses}"
                               AutoGenerateColumns="False"
-                              CanUserAddRows="False">
+                              CanUserAddRows="{Binding AddNewAdresse}">
 
 						<DataGrid.Columns>
 
