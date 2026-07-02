@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj": {}
+    "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj": {
+    "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj",
+        "projectUniqueName": "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj",
         "projectName": "KontaktBuchAppTest",
-        "projectPath": "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj",
+        "projectPath": "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj",
         "packagesPath": "C:\\Users\\vamic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchAppTest\\obj\\",
+        "outputPath": "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchAppTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -34,8 +34,8 @@
             "framework": "net8.0-windows7.0",
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj": {
-                "projectPath": "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj"
+              "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj": {
+                "projectPath": "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj"
               }
             }
           }
@@ -104,14 +104,14 @@
         }
       }
     },
-    "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj": {
+    "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj",
+        "projectUniqueName": "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj",
         "projectName": "KontaktBuchApp",
-        "projectPath": "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj",
+        "projectPath": "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchApp\\KontaktBuchApp.csproj",
         "packagesPath": "C:\\Users\\vamic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp\\obj\\",
+        "outputPath": "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

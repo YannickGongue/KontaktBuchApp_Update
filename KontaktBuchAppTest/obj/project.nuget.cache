@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SpBUHS11GF4=",
+  "dgSpecHash": "GJW3IYnavqU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\vamic\\source\\repos\\KOntakBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj",
+  "projectFilePath": "C:\\Users\\vamic\\source\\repos\\KontaktBuch_Update1.0\\KontaktBuchApp_Update\\KontaktBuchAppTest\\KontaktBuchAppTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vamic\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\vamic\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.2\\communitytoolkit.mvvm.8.4.2.nupkg.sha512",

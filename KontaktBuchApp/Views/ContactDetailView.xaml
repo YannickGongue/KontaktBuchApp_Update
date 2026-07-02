@@ -1,0 +1,252 @@
+﻿ <Window x:Class="KontaktBuchApp.Views.ContactDetailView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			xmlns:controls="clr-namespace:KontaktBuchApp.Themes"
+        Height="850"
+        Width="1100"
+        WindowStartupLocation="CenterScreen">
+
+	<ScrollViewer VerticalScrollBarVisibility="Auto">
+
+		<Grid Margin="20">
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+
+			<!-- Header -->
+			<DockPanel Grid.Row="0" Margin="0,0,0,20">
+				<Grid Grid.Row="0" Margin="0,0,0,20">
+
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+
+					<controls:IconButton Grid.Column="0"
+                                     Text="Zurück"
+                                            Width="120"
+												Height="40"
+												PathData="{StaticResource left-Arrow}"
+												IconColor="Black"
+												/>
+
+					<TextBlock Grid.Column="1"
+               Text="{Binding ContactText}"
+               FontSize="26"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+
+				</Grid>
+			</DockPanel>
+
+			<Border Grid.Row="1"
+                    BorderBrush="#DDDDDD"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20">
+
+				<Grid>
+
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="250"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<!-- Profilbild -->
+					<StackPanel Grid.Column="0">
+
+						<Border Width="180"
+            Height="180"
+            CornerRadius="90"
+            ClipToBounds="True">
+
+							<Image Source="{Binding SelectedImage}"
+               Stretch="UniformToFill"/>
+
+						</Border>
+
+						<controls:IconButton
+                      Text="Bild ändern"
+                       Margin="0,15,0,0"
+                        Width="180"
+							IconColor="Black"
+             Command="{Binding ChangeImageCommand}"
+           PathData="{StaticResource Bookmark}" />
+
+					</StackPanel>
+
+					<!-- Name -->
+					<StackPanel Grid.Column="1">
+
+						<TextBlock Text="Vorname"
+                                   Margin="0,10,0,5"/>
+
+						<TextBox Text="{Binding FirstName}"
+                                 Height="35"/>
+
+						<TextBlock Text="Nachname"
+                                   Margin="0,20,0,5"/>
+
+						<TextBox Text="{Binding LastName}"
+                                 Height="35"/>
+
+					</StackPanel>
+
+				</Grid>
+
+			</Border>
+
+			<!-- Kontaktmöglichkeiten -->
+			<GroupBox Grid.Row="2"
+                      Header="Kontaktmöglichkeiten"
+                      Margin="0,20,0,0">
+
+				<DockPanel Margin="10">
+
+					<controls:IconButton
+						    Text="Kontaktmöglichkeit hinzufügen"
+                      DockPanel.Dock="Top"
+                      HorizontalAlignment="Right"
+                      Margin="0,0,0,10"
+						    PathData="{StaticResource add-new}"
+						    Height="40"
+						    Width="300"
+						IconColor="RoyalBlue"
+						Command="{Binding AddContactMethodCommand}"/>
+
+					<DataGrid
+                 RowHeight="45"
+    HeadersVisibility="Column"
+    GridLinesVisibility="Horizontal"
+    AutoGenerateColumns="False"
+    CanUserAddRows="False"
+						ItemsSource="{Binding ContactMethods}">
+
+						<DataGrid.Columns>
+
+							<DataGridTextColumn Header="Typ"
+                                                Binding="{Binding Type}"
+                                                Width="200"/>
+
+							<DataGridTextColumn Header="Wert"
+                                                Binding="{Binding Value}"
+                                                Width="*"/>
+
+							<DataGridTemplateColumn Width="80">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<controls:IconButton Text="🗑"
+                                     Command="{Binding DataContext.DeleteContactMethodCommand,
+                                    RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="{Binding}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+
+						</DataGrid.Columns>
+
+					</DataGrid>
+
+				</DockPanel>
+
+			</GroupBox>
+
+			<!-- Adressen -->
+			<GroupBox Grid.Row="3"
+                      Header="Adressen"
+                      Margin="0,20,0,0">
+
+				<DockPanel Margin="10">
+
+					<controls:IconButton Text="Adresse hinzufügen"
+                            DockPanel.Dock="Top"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,0,10"
+									Height="50"
+									Foreground="black"
+                        IconColor="RoyalBlue"
+                       PathData="{StaticResource add-new}"
+												Command="{Binding AddAddressCommand}"/>
+
+					<DataGrid ItemsSource="{Binding Addresses}"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False">
+
+						<DataGrid.Columns>
+
+							<DataGridTextColumn Header="Straße"
+                    Binding="{Binding Strasse}" />
+
+							<DataGridTextColumn Header="Ort"
+                    Binding="{Binding Ort}" />
+
+							<DataGridTextColumn Header="PLZ"
+                    Binding="{Binding Plz}" />
+
+							<DataGridTextColumn Header="Land"
+                    Binding="{Binding Land}" />
+
+							<DataGridTemplateColumn Width="80">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<controls:IconButton Text="🗑"
+                                     Command="{Binding DataContext.DeleteAddressCommand,
+                                    RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="{Binding}"/>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+
+						</DataGrid.Columns>
+
+					</DataGrid>
+
+				</DockPanel>
+
+			</GroupBox>
+
+			<!-- Footer -->
+			<StackPanel Grid.Row="4"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,30">
+
+				<controls:IconButton Text="Speichern"
+                        Width="180"
+                        Height="45"
+                        Margin="10"
+								BorderBrush="Gray"
+                        BorderThickness="2"
+                        Background="RoyalBlue"
+                        Foreground="White"
+                        IconColor="Red"
+								PathData="{StaticResource file-info}"
+                        Command="{Binding SaveCommand}"/>
+
+				<controls:IconButton Text="Löschen"
+                        Width="180"
+                        Height="45"
+                        Margin="10"
+								BorderBrush="Gray"
+                        BorderThickness="2"
+							   Background="RoyalBlue"
+                        Foreground="White"
+								IconColor="Red"
+                        Command="{Binding DeleteCommand}"
+								PathData="{StaticResource Cancel-Icon}"/>
+
+			</StackPanel>
+
+		</Grid>
+
+	</ScrollViewer>
+
+</Window>
+

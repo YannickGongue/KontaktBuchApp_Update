@@ -1,0 +1,27 @@
+﻿<Application x:Class="KontaktBuchApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:KontaktBuchApp"
+				 Startup="Application_Startup">
+
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/Themes/Generic.xaml"/>
+				<ResourceDictionary Source="/Themes/Geometry.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>
+
+<!--xmlns:vm ="clr-namespace:KontaktBuchApp.ViewModel;assembly=KontaktBuchApp"-->
+<!--xmlns:views="clr-namespace:KontaktBuchApp.Views"-->
+<!--<DataTemplate DataType="{x:Type vm:ContactDetailViewModel}">
+				<views:ContactDetailView/>
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type vm:OPenContactViewModel}">
+				<views:UcOpenContact/>
+			</DataTemplate>-->
+
+	

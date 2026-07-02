@@ -1,0 +1,161 @@
+﻿<Window x:Class="KontaktBuchApp.Views.ContactListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		  xmlns:Controls="clr-namespace:KontaktBuchApp.Themes"
+        mc:Ignorable="d"
+        Title="KontaktList" 
+		  Height="550" 
+		  Width="600">
+	<Grid>
+		<TextBox x:Name="txtSearch" 
+            Text="{Binding SearchText}"
+            Width="358"
+            Height="40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="50,15,0,0"/>
+
+		<Controls:IconButton 
+			x:Name="btnSearch" 
+			Content="Search" 
+			Command="{Binding SearchCommand }"
+            CornerRadius="8"
+            Width="155"
+            Height="40"
+            BorderBrush="Gray"
+            BorderThickness="2"
+            PathData="{StaticResource Reload}"
+            Background="RoyalBlue"
+            Foreground="White"
+            FontSize="20"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Margin="289,15,20,0" 
+            Cursor="Hand" 
+			  Text="Search"/>
+
+		<DataGrid 
+			RowDetailsVisibilityMode="VisibleWhenSelected"
+    ItemsSource="{Binding Contacts}"
+    SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
+    AutoGenerateColumns="False"
+    Margin="10,74,10,80">
+
+			<DataGrid.Columns>
+
+				<DataGridTextColumn Header="ContactId"
+                            Binding="{Binding ContactId}" />
+
+				<DataGridTemplateColumn Header="Bild">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<Image Source="{Binding ProfilbildImage}"
+                           Width="60"
+                           Height="60"
+                           Stretch="Uniform"/>
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+
+				<DataGridTextColumn Header="Vorname"
+                            Binding="{Binding Vorname}" />
+
+				<DataGridTextColumn Header="Nachname"
+                            Binding="{Binding Nachname}" />
+		
+
+			</DataGrid.Columns>
+			<DataGrid.RowDetailsTemplate>
+				<DataTemplate>
+
+					<StackPanel>
+
+						<TextBlock Text="Adressen:" FontWeight="Bold"/>
+
+						<ItemsControl ItemsSource="{Binding Addresses}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Strasse}" />
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+
+						<TextBlock Text="Contact Methods:" FontWeight="Bold"/>
+
+						<ItemsControl ItemsSource="{Binding ContactMethods}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Value}" />
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+
+					</StackPanel>
+
+				</DataTemplate>
+			</DataGrid.RowDetailsTemplate>
+
+		</DataGrid>
+
+		<Controls:IconButton 
+	x:Name="btnOpen" 
+	Content="OpenContact" 
+	Command="{Binding OpenCommand }"
+      CornerRadius="8"
+      Width="180"
+      Height="40"
+      BorderBrush="Gray"
+      BorderThickness="2"
+      PathData="{StaticResource Maintenance}"
+      Background="RoyalBlue"
+      Foreground="White"
+			IconColor="Black"
+      FontSize="20"
+      VerticalAlignment="Bottom"
+      HorizontalAlignment="Left"
+      Margin="24,0,0,26" 
+      Cursor="Hand" 
+	  Text="Open Contact"/>
+
+
+		<Controls:IconButton 
+	x:Name="btnAdd" 
+	Content="AddContact" 
+	Command="{Binding  AddCommand }"
+      CornerRadius="8"
+      Width="180"
+      Height="40"
+      BorderBrush="Gray"
+      BorderThickness="2"
+      PathData="{StaticResource file-info}"
+      Background="RoyalBlue"
+      Foreground="White"
+      FontSize="20"
+      VerticalAlignment="Bottom"
+      HorizontalAlignment="Right"
+      Margin="0,0,20,26" 
+      Cursor="Hand" 
+	  Text="Add Contact"/>
+
+		<Controls:IconButton 
+x:Name="Edit" 
+Content="Edit" 
+Command="{Binding  EditCommand }"
+   CornerRadius="8"
+   Width="170"
+   Height="40"
+   BorderBrush="Gray"
+   BorderThickness="2"
+   PathData="{StaticResource Edit}"
+   Background="RoyalBlue"
+   Foreground="White"
+   FontSize="20"
+   VerticalAlignment="Bottom"
+   HorizontalAlignment="center"
+   Margin="10,0,15,26" 
+   Cursor="Hand" 
+  Text=" Edit Contact"/>
+	</Grid>
+</Window>

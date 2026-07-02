@@ -1,0 +1,49 @@
+﻿<Window x:Class="KontaktBuchApp.Views.OpenContactView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KontaktBuchApp.Views" 
+				 xmlns:Controls="clr-namespace:KontaktBuchApp.Themes" 
+             Height="350"
+				 Width="500">
+	<Grid>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="70"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<!-- Profilbild -->
+		<Border Grid.Column="0"
+                    Width="60"
+                    Height="60"
+                    CornerRadius="30"
+                    ClipToBounds="True">
+
+			<Image Source="{Binding ContactImage}"
+                       Stretch="UniformToFill"/>
+		</Border>
+
+		<!-- Kontaktdaten -->
+		<StackPanel Grid.Column="1"
+                        Margin="15,0,0,0"
+                        VerticalAlignment="Center">
+
+			<TextBlock Text="{Binding FullName}"
+                           FontSize="16"
+                           FontWeight="SemiBold"/>
+
+			<TextBlock Text="{Binding PrimaryEmail}"
+                           Margin="0,4,0,0"
+                           Foreground="Gray"/>
+
+			<TextBlock Text="{Binding PrimaryPhone}"
+                           Margin="0,2,0,0"
+                           Foreground="Gray"/>
+
+		</StackPanel>
+
+	</Grid>
+
+</Window>
