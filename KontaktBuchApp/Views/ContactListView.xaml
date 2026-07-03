@@ -40,7 +40,7 @@
 			RowDetailsVisibilityMode="VisibleWhenSelected"
     ItemsSource="{Binding Contacts}"
     SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
-    AutoGenerateColumns="False"
+    AutoGenerateColumns="{Binding bNewRow}"
     Margin="10,74,10,80">
 
 			<DataGrid.Columns>

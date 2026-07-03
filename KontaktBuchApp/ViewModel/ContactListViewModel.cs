@@ -21,6 +21,7 @@ namespace KontaktBuchApp.ViewModel
 		private string contactId;
 		private string vorname;
 		private string nachname;
+		private bool _bNewRow;
 
 		private MAddress _mAddress;
 		private MContactMethod _mContactMethod;
@@ -44,8 +45,18 @@ namespace KontaktBuchApp.ViewModel
 		private MContact _mContact;
 		private MContact _selectedContact;
 		private ImageSource _imageSource;
-		
 
+		public Action<MContact> ContactSaved { get; set; }
+
+		public bool bNewRow
+		{
+			get { return _bNewRow; }
+			set
+			{
+				_bNewRow = value;
+				OnPropertyChanged(nameof(bNewRow));
+			}
+		}
 		public ImageSource ProfilbildImage
 		{
 			get => this._imageSource;
@@ -167,6 +178,7 @@ namespace KontaktBuchApp.ViewModel
 			this._IimageService = IimageService;
 			this._Imessageservice = Imessageservice;
 
+			this._contacts = new ObservableCollection<MContact>();
 			Contacts = _IcontactList.GetAll();
 
 			foreach (var contact in this.Contacts)
@@ -183,6 +195,8 @@ namespace KontaktBuchApp.ViewModel
 		private void EditContact()
 		{
 			this.ShowContactView();
+			this.ContactSaved = AddContactToList;
+
 		}
 
 		private void SearchContacts()
@@ -192,7 +206,21 @@ namespace KontaktBuchApp.ViewModel
 
 		private void AddContact()
 		{
+			this.bNewRow = true;
 		  this.ShowContactView();
+			this.ContactSaved = AddContactToList;
+			this.Contacts = this._contacts;
+
+		}
+
+		private void AddContactToList(MContact contact)
+		{
+			if (Contacts == null)
+			{
+				Contacts = new ObservableCollection<MContact>();
+			}
+
+			Contacts.Add(contact);
 		}
 
 		private void OpenContact()

@@ -54,7 +54,7 @@ namespace KontaktBuchApp.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KontaktBuchApp;V1.0.0.0;component/views/contactmethodview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KontaktBuchApp;component/views/contactmethodview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\ContactMethodView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

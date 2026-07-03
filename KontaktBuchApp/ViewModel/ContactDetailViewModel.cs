@@ -187,6 +187,7 @@ namespace KontaktBuchApp.ViewModel
 		public IRelayCommand AddContactMethodCommand { get; }
 		public IRelayCommand DeleteContactMethodCommand { get; }
 		public IRelayCommand ChangeImageCommand { get; }
+		public Action<MContact> ContactSaved { get; set; }
 
 		public ContactDetailViewModel(IFileDialogService fileDialogService,
 			                           IImagesService imageService, 
@@ -251,7 +252,8 @@ namespace KontaktBuchApp.ViewModel
 			   _mContacts.ProfilbildImage = this.SelectedImage;
 			   _mContacts.Addresses = this.Addresses;
 			  _mContacts.ContactMethods = this.ContactMethods;
-				this._IContactList.Add(this._mContacts);     		
+			  ContactSaved?.Invoke(_mContacts);
+			//this._IContactList.Add(this._mContacts);     		
 			
 		}
 
